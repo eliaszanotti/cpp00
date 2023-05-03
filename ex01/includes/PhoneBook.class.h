@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.class.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 13:09:33 by elias             #+#    #+#             */
-/*   Updated: 2023/05/03 13:42:50 by elias            ###   ########.fr       */
+/*   Created: 2023/05/03 14:22:26 by elias             #+#    #+#             */
+/*   Updated: 2023/05/03 17:35:18 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef PHONEBOOK_CLASS_H
+# define PHONEBOOK_CLASS_H
 
-int	main(int argc, char **argv)
+#include <iostream>
+#include "Contact.class.h"
+
+class	PhoneBook
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
-		for (int i = 1; i < argc; i++)
-			for (; *argv[i]; argv[i]++)
-				std::cout << (char)std::toupper(*argv[i]);	
-	std::cout << std::endl;
-	return (0);
-}
+	private:
+		Contact	contacts[8];
+		int		contactCount;
+		int		index;
+
+	public:
+		PhoneBook();
+		
+		void	addContact(std::string firstName, std::string lastName, \
+					std::string phoneNumber, std::string email);
+		void	listContact();
+		void	showContact(int index);
+		int		countContact();
+};
+
+#endif

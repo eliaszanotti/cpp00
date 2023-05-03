@@ -6,11 +6,11 @@
 #    By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 13:07:58 by elias             #+#    #+#              #
-#    Updated: 2023/05/03 17:18:13 by elias            ###   ########.fr        #
+#    Updated: 2023/05/03 16:38:51 by elias            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-S_SRC		= megaphone.cpp
+S_SRC		= phonebook.cpp
 
 S_TMP		= ${addprefix ${D_SRC}, ${S_SRC}}
 O_SRC		= $(patsubst %.c, ${D_OBJS}%.o, $(S_TMP))
@@ -29,7 +29,7 @@ PRINT		= @printf
 
 # DIRECTORIES
 D_OBJS		= .objs/
-D_INC		= includes
+D_INC		= includes/
 D_SRC		= srcs/
 
 # COLORS
