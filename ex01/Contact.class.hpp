@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.h                                    :+:      :+:    :+:   */
+/*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:48:44 by elias             #+#    #+#             */
-/*   Updated: 2023/05/03 17:41:04 by elias            ###   ########.fr       */
+/*   Updated: 2023/05/04 14:28:31 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
-	
+#ifndef CONTACT_CLASS_HPP
+# define CONTACT_CLASS_HPP
+
+#include <iostream>
+
 class	Contact
 {
 	private:
@@ -21,14 +23,14 @@ class	Contact
 		std::string	_phoneNumber;
 		std::string	_email;
 
-	public:
-		Contact(std::string firstName, std::string lastName, \
-				std::string phoneNumber, std::string email);
+		std::string	_promptInput(std::string) const;
 
-		std::string	getFirstName();
-		std::string	getLastName();
-		std::string	getPhoneNumber();
-		std::string	getEmail();
+	public:
+		Contact();
+		~Contact();
+
+		void	init(void);
+		void	print(void) const;
 };
 
 #endif

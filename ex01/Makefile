@@ -6,22 +6,24 @@
 #    By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 13:07:58 by elias             #+#    #+#              #
-#    Updated: 2023/05/03 16:38:51 by elias            ###   ########.fr        #
+#    Updated: 2023/05/04 14:35:42 by elias            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-S_SRC		= phonebook.cpp
+S_SRC		= main.cpp		\
+			contact.cpp		\
+			phonebook.cpp	
 
 S_TMP		= ${addprefix ${D_SRC}, ${S_SRC}}
 O_SRC		= $(patsubst %.c, ${D_OBJS}%.o, $(S_TMP))
 
 # VARIABLES
-NAME		= megaphone
+NAME		= book
 CC			= c++ -std=c++98
 
 # FLAGS
 MAKEFLAGS	+= --no-print-directory -s
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g3
 
 # COMMANDS
 RM			= rm -rf
@@ -46,12 +48,12 @@ all:		${NAME}
 ${D_OBJS}%.o: %.c		${D_INC}${NAME}.h Makefile
 			@mkdir		-p $(shell dirname $@)
 			@${PRINT}	"${C_Y}${C_DEL}Creating ${NAME}'s objects : $@"
-			@${CC}		${CFLAGS} -I${D_INC} -c $< -o $@
+			@${CC}		${CFLAGS} -I. -c $< -o $@
 
 ${NAME}:	ascii ${O_SRC}
 			@${PRINT}	"${C_G}${C_DEL}Creating ${NAME}'s objects : DONE\n"
 			@${PRINT}	"${C_Y}Compiling ${NAME}...${C_RST}"
-			@${CC}		${O_SRC} -o ${NAME}
+			@${CC}		-fsanitize=address ${O_SRC} -o ${NAME}
 			@${PRINT}	"${C_G}${C_DEL}Compiling ${NAME} : DONE ${C_RST}\n\n"
 
 ascii:
@@ -68,10 +70,14 @@ fclean:		clean
 re:			fclean all
 
 define		ASCII
-${C_C} _____ _____ _____    ___ ____
-|     |  |  | __  |  |_  |    \\
-|   --|  |  | __ -|  |_  |  |  |
-|_____|_____|_____|  |___|____/
+${C_C}
+   _____           
+  / ____|_     _   
+ | |   _| |_ _| |_ 
+ | |  |_   _|_   _|
+ | |____|_|   |_|  
+  \_____|          
+
 ${C_RST}
 endef
 

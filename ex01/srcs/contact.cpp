@@ -6,37 +6,41 @@
 /*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:36:12 by elias             #+#    #+#             */
-/*   Updated: 2023/05/03 17:44:53 by elias            ###   ########.fr       */
+/*   Updated: 2023/05/04 14:37:32 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Contact.class.h"
+#include "../Contact.class.hpp"
 
-Contact::Contact(std::string firstName, std::string lastName, \
-		std::string phoneNumber, std::string email);
+Contact::Contact()
 {
-	_firstName = firstName;
-	_lastName = lastName;
-	_phoneNumber = phoneNumber;
-	_email = email;
 }
 
-std::string	Contact::getFirstName()
+Contact::~Contact()
 {
-	return (_firstName);
 }
 
-std::string	Contact::getLastName()
+std::string	Contact::_promptInput(std::string prompt) const
 {
-	return (_lastName);
+	std::string	line = "";
+
+	std::cout << prompt;
+	std::getline(std::cin, line);
+	return (line);
 }
 
-std::string	Contact::getPhoneNumber()
+void	Contact::init(void)
 {
-	return (_phoneNumber);
+	this->_firstName = this->_promptInput("First name :");
+	this->_lastName = this->_promptInput("Last name :");
+	this->_phoneNumber = this->_promptInput("Phone number :");
+	this->_email = this->_promptInput("Email :");
 }
 
-std::string	Contact::getEmail()
+void	Contact::print(void) const
 {
-	return (_email);
+    std::cout << "First name :" << this->_firstName << std::endl;
+    std::cout << "Last name :" << this->_lastName << std::endl;	
+    std::cout << "Phone number" << this->_phoneNumber << std::endl;	
+    std::cout << "Email :" << this->_email << std::endl;	
 }

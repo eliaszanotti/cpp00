@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.h                                  :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 14:22:26 by elias             #+#    #+#             */
-/*   Updated: 2023/05/03 17:35:18 by elias            ###   ########.fr       */
+/*   Created: 2023/05/04 14:14:09 by elias             #+#    #+#             */
+/*   Updated: 2023/05/04 14:30:15 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
-
 #include <iostream>
-#include "Contact.class.h"
+#include "../PhoneBook.class.hpp"
 
-class	PhoneBook
+int	main(void)
 {
-	private:
-		Contact	contacts[8];
-		int		contactCount;
-		int		index;
+	PhoneBook book;
+	std::string	line = "";
 
-	public:
-		PhoneBook();
-		
-		void	addContact(std::string firstName, std::string lastName, \
-					std::string phoneNumber, std::string email);
-		void	listContact();
-		void	showContact(int index);
-		int		countContact();
-};
-
-#endif
+	while (line.compare("EXIT"))
+	{
+		std::cout << "prompt> ";
+		std::cin >> line;
+		if (!line.compare("ADD"))
+			book.addContact();
+		else if (!line.compare("SEARCH"))
+		{
+			book.printContacts();
+			book.searchContact();
+		}
+	}
+	return (0);
+}
