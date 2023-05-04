@@ -6,7 +6,7 @@
 /*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:14:09 by elias             #+#    #+#             */
-/*   Updated: 2023/05/04 14:30:15 by elias            ###   ########.fr       */
+/*   Updated: 2023/05/04 15:01:08 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ int	main(void)
 
 	while (line.compare("EXIT"))
 	{
-		std::cout << "prompt> ";
-		std::cin >> line;
+		std::cout << "prompt> " << std::flush;
+		std::getline(std::cin, line);
 		if (!line.compare("ADD"))
 			book.addContact();
 		else if (!line.compare("SEARCH"))
 		{
 			book.printContacts();
+			std::cout << std::endl;
 			book.searchContact();
 		}
 	}

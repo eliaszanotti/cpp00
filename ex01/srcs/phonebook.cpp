@@ -6,10 +6,11 @@
 /*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:06:20 by elias             #+#    #+#             */
-/*   Updated: 2023/05/04 14:30:40 by elias            ###   ########.fr       */
+/*   Updated: 2023/05/04 15:28:55 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits>
 #include "../PhoneBook.class.hpp"
 #include "../Contact.class.hpp"
 
@@ -30,10 +31,15 @@ int	PhoneBook::_getIndex(void) const
 	{
 		std::cout << "Index : ";
 		std::cin >> index;
-		if (index >= 0 && index <= 8)
+		if (std::cin.good() && index >= 0 && index <= 8)
 			end = true;
 		else
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 		    std::cout << "Invalid index ..." << std::endl;
+			end = false;
+		}
 	}
 	return (index);
 }
