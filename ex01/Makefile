@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+         #
+#    By: elias <elias@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 13:07:58 by elias             #+#    #+#              #
-#    Updated: 2023/05/04 14:35:42 by elias            ###   ########.fr        #
+#    Updated: 2023/06/28 16:03:05 by elias            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ ${D_OBJS}%.o: %.c		${D_INC}${NAME}.h Makefile
 ${NAME}:	ascii ${O_SRC}
 			@${PRINT}	"${C_G}${C_DEL}Creating ${NAME}'s objects : DONE\n"
 			@${PRINT}	"${C_Y}Compiling ${NAME}...${C_RST}"
-			@${CC}		-fsanitize=address ${O_SRC} -o ${NAME}
+			@${CC}		${O_SRC} -o ${NAME}
 			@${PRINT}	"${C_G}${C_DEL}Compiling ${NAME} : DONE ${C_RST}\n\n"
 
 ascii:

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:06:20 by elias             #+#    #+#             */
-/*   Updated: 2023/05/05 14:03:15 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/28 16:02:31 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 PhoneBook::PhoneBook()
 {
+	this->_currentContact = 0;
+	this->_size = 0;
 }
 
 PhoneBook::~PhoneBook()
@@ -30,6 +32,8 @@ int	PhoneBook::_getIndex(void) const
 	{
 		std::cout << "Index : ";
 		std::cin >> index;
+		if (std::cin.eof())
+			break ;
 		if (std::cin.good() && index >= 0 && index <= 8)
 		{
 			if (index >= this->_size)

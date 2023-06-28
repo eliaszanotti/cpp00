@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:36:12 by elias             #+#    #+#             */
-/*   Updated: 2023/05/05 13:52:14 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/28 16:01:37 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ std::string	Contact::_promptInput(std::string prompt) const
 	{
 		std::cout << prompt << std::flush;
 		std::getline(std::cin, line);
+		if (std::cin.eof())
+			break ;	
 		if (std::cin.good() && !line.empty())
 			validInput = true;
 		else

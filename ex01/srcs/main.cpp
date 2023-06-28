@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:14:09 by elias             #+#    #+#             */
-/*   Updated: 2023/05/05 14:03:27 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/28 16:04:02 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-//#include <limits>
 #include "../PhoneBook.class.hpp"
 
 int	main(void)
@@ -23,6 +22,8 @@ int	main(void)
 	{
 		std::cout << "-> " << std::flush;
 		std::cin >> line;
+		if (std::cin.eof())
+			return (0);
 		if (!line.compare("ADD"))
 		{
 			book.addContact();
@@ -35,6 +36,8 @@ int	main(void)
 			book.searchContact();
 			std::cout << std::endl;
 		}
+		else
+			std::cout << "command not found: " << line << std::endl;
 	}
 	return (0);
 }
