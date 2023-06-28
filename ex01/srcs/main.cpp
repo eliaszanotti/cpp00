@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:14:09 by elias             #+#    #+#             */
-/*   Updated: 2023/06/28 16:04:02 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/28 16:08:15 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(void)
 			book.searchContact();
 			std::cout << std::endl;
 		}
-		else
+		else if (line.compare("EXIT"))
 			std::cout << "command not found: " << line << std::endl;
 	}
 	return (0);
